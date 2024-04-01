@@ -10,16 +10,7 @@
 				color: #120418;
 				background-color: #849FB7;
 			}
-			#inputA{
-				color: #120418;
-				width: 40px;
-				margin-top: 10px;
-				margin-left: 10px;
-				border-radius: 5px;
-				border: 1px solid black;
-				background-color: #768CA4;
-			}
-			#inputB{
+			#inputX{
 				color: #120418;
 				width: 40px;
 				margin-top: 10px;
@@ -40,7 +31,7 @@
 			#divResult{
 				color: #120418;
 				background-color: #768CA4;
-				width: 100px;
+				width: 150px;
 				margin-top: 10px;
 				margin-left: 10px;
 				border: 1px solid black;
@@ -51,8 +42,7 @@
 		
 		<body class='body'>
 			
-				<input placeholder="Введите А" id="inputA" />
-				<input placeholder="Введите B" id="inputB" />
+				<input placeholder="X" id="inputX" />
 
 				<button id="btnCalc" onclick="calculate()">
 				  Выполнить
@@ -62,29 +52,40 @@
 		</body>
 		<script>
 			function calculate(){
-				var a = document.getElementById("inputA").value;
-				var b = document.getElementById("inputB").value;
+				var x = document.getElementById("inputX").value;
 			
 			 
-			  if(  a != "" ){
-			        if( b != "" ){
-			            a = parseInt(a);
-			            b = parseInt(b);
-			
-						if ( a >= 2 && b <= 3){
-							document.getElementById("divResult").innerHTML =  a +" >= 2 and " + b + " <= 3 ";
-						} else {
-							document.getElementById("divResult").innerHTML =  "False";
-						}
-			            
+			    if( x != "" ){
+			        var a = parseFloat(3.9);
+			        var b = parseFloat(4.6);
+			        var x = parseFloat(x);
+					var e = parseFloat(2.71828182846)
+			        
+					switch(x) {
+						case 5:
+							var y = x + (Math.cos(a*x) / x**2 + 1);
+							document.getElementById("divResult").innerHTML =  "Answer: " + y;
+							break;
+					
+						case 8:
+							var y = b * Math.sin(a / x);
+							document.getElementById("divResult").innerHTML =  "Answer: " + y;
+							break;
+						
+						case 2:
+							var y = e**x + Math.log10(Math.abs(x));
+							document.getElementById("divResult").innerHTML =  "Answer: " + y;
+							break;
+						
+						default:
+							document.getElementById("divResult").innerHTML =  "X is not defined";
+					}
+					
 			        } else {
-			            document.getElementById("divResult").innerHTML =  "Please type B";
+			            document.getElementById("divResult").innerHTML =  "Please type X";
 			        } 
 			
-			  } else {
-			      document.getElementById("divResult").innerHTML =  "Please type A";
-			    }
-			}
+			  }
 
 		</script>
 	</html>
